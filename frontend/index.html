@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ShopEase Store – Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+    }
+
+    header {
+        background: #1a73e8;
+        padding: 15px 30px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header a {
+        color: white;
+        margin-left: 20px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 25px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    .title {
+        font-size: 18px;
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+
+    .price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #1a73e8;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background: #1a73e8;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn:hover {
+        background: #155fc0;
+    }
+</style>
+
+<script>
+function addToCart(id, title, price, img) {
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.push({ id, title, price, img });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(title + " added to cart!");
+}
+</script>
+
+</head>
+<body>
+
+<header>
+    <h2>ShopEase Store</h2>
+    <div>
+        <a href="cart.html">🛒 Cart</a>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- PRODUCT 1: Laptop -->
+    <div class="card">
+        <img src="assets/product_laptop.jpg">
+        <div class="title">ASUS ROG Strix G15 Gaming Laptop</div>
+        <div class="price">₹1,999</div>
+        <button class="btn" onclick="addToCart(1, 'ASUS ROG Strix G15 Gaming Laptop', 1999, 'assets/product_laptop.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 2: iPhone -->
+    <div class="card">
+        <img src="assets/product_iphone.jpg">
+        <div class="title">iPhone 15 Pro Max Titanium</div>
+        <div class="price">₹2,499</div>
+        <button class="btn" onclick="addToCart(2, 'iPhone 15 Pro Max Titanium', 2499, 'assets/product_iphone.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 3: Headphones -->
+    <div class="card">
+        <img src="assets/product_headphones.jpg">
+        <div class="title">Sony WH-1000XM4 Headphones</div>
+        <div class="price">₹899</div>
+        <button class="btn" onclick="addToCart(3, 'Sony WH-1000XM4 Headphones', 899, 'assets/product_headphones.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 4: Perfume -->
+    <div class="card">
+        <img src="assets/product_perfume.jpg">
+        <div class="title">Dior Sauvage 100ml</div>
+        <div class="price">₹599</div>
+        <button class="btn" onclick="addToCart(4, 'Dior Sauvage 100ml', 599, 'assets/product_perfume.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 5: Jersey (Your image) -->
+    <div class="card">
+        <img src="assets/product_jersey.jpg">
+        <div class="title">Messi Barcelona Jersey – Rare Edition</div>
+        <div class="price">₹349</div>
+        <button class="btn" onclick="addToCart(5, 'Messi Barcelona Rare Jersey', 349, 'assets/product_jersey.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 6: Shoes -->
+    <div class="card">
+        <img src="assets/product_shoes.jpg">
+        <div class="title">Nike Air Jordan 1 Retro</div>
+        <div class="price">₹699</div>
+        <button class="btn" onclick="addToCart(6, 'Nike Air Jordan 1 Retro', 699, 'assets/product_shoes.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 7: Camera -->
+    <div class="card">
+        <img src="assets/product_camera.jpg">
+        <div class="title">Canon EOS 1500D DSLR</div>
+        <div class="price">₹1,499</div>
+        <button class="btn" onclick="addToCart(7, 'Canon EOS 1500D DSLR', 1499, 'assets/product_camera.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 8: PS5 -->
+    <div class="card">
+        <img src="assets/product_ps5.jpg">
+        <div class="title">PS5 Slim Digital Edition</div>
+        <div class="price">₹2,999</div>
+        <button class="btn" onclick="addToCart(8, 'PS5 Slim Digital Edition', 2999, 'assets/product_ps5.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 9: Watch -->
+    <div class="card">
+        <img src="assets/product_watch.jpg">
+        <div class="title">Tissot Powermatic 80</div>
+        <div class="price">₹1,199</div>
+        <button class="btn" onclick="addToCart(9, 'Tissot Powermatic 80', 1199, 'assets/product_watch.jpg')">Add to Cart</button>
+    </div>
+
+    <!-- PRODUCT 10: Cosmetics -->
+    <div class="card">
+        <img src="assets/product_cosmetic.jpg">
+        <div class="title">MAC Velvet Teddy Lipstick</div>
+        <div class="price">₹299</div>
+        <button class="btn" onclick="addToCart(10, 'MAC Velvet Teddy Lipstick', 299, 'assets/product_cosmetic.jpg')">Add to Cart</button>
+    </div>
+
+</div>
+
+</body>
+</html>

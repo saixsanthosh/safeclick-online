@@ -1,0 +1,60 @@
+/* app/style.css */
+body {
+    margin: 0;
+    background: #00141e;
+    font-family: Consolas, monospace;
+    color: #04ff91;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg,#002531,#00343a);
+    padding: 14px 20px;
+    border-bottom: 2px solid #07f0a3;
+}
+
+header h1 { margin: 0; font-size: 24px; letter-spacing: 2px; }
+.top-controls { display:flex; gap:10px; }
+
+.container { display:flex; height: calc(100vh - 64px); }
+
+.left-panel {
+    width: 65%; padding:16px; overflow-y:auto;
+}
+.right-panel {
+    width: 35%; padding:12px; border-left: 1px solid #07f0a3; box-sizing:border-box; overflow:hidden;
+}
+
+/* Table */
+table { width:100%; border-collapse:collapse; margin-bottom:10px; }
+th, td { padding:8px 10px; border-bottom:1px solid rgba(0,255,157,0.08); text-align:left; }
+th { color:#7fffd7; font-weight:600; font-size:13px; }
+
+/* Buttons */
+button { background:transparent; border:1px solid #07f0a3; color:#07f0a3; padding:6px 10px; cursor:pointer; border-radius:6px; }
+button:hover{ background:#07f0a3; color:#01241a; }
+
+/* details box */
+.details-box { margin-top:12px; padding:12px; border:1px solid #07f0a3; background:#002b34; border-radius:8px; }
+
+/* modal */
+.modal { display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.8); align-items:center; justify-content:center; }
+.modal-content { max-width:90%; max-height:90%; border:4px solid #07f0a3; }
+
+/* map and code box */
+#map { background:#081218; border-radius:8px; margin-bottom:12px; }
+.codeBox { height:45%; overflow:auto; background:#00141a; padding:8px; border-radius:8px; border:1px solid rgba(0,255,157,0.06); }
+
+/* live logs */
+.log-feed { margin-top:10px; height:120px; overflow:auto; background:#01131a; padding:8px; border-radius:6px; border:1px solid rgba(0,255,157,0.05); }
+.log-line { color:#9affc8; font-size:12px; padding:4px 0; }
+
+/* code animation lines */
+.code-line { color:#00ffbf; font-size:12px; margin-bottom:4px; opacity:.85; }
+
+/* alt theme */
+body.alt-theme { background:#020007; color:#9be8ff; }
+body.alt-theme header { border-bottom-color:#90e2ff; }
+body.alt-theme button { border-color:#90e2ff; color:#90e2ff; }

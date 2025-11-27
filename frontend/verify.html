@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Human Verification – ShopEase</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+    }
+
+    header {
+        background: #1a73e8;
+        padding: 15px 30px;
+        color: white;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .container {
+        padding: 25px;
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    video {
+        width: 100%;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+
+    canvas {
+        display: none;
+    }
+
+    .btn {
+        margin-top: 20px;
+        padding: 12px;
+        width: 100%;
+        background: #1a73e8;
+        border: none;
+        color: white;
+        font-size: 18px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #155fc0;
+    }
+
+    .warning {
+        background: #ffe5e5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        color: #b10000;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+let videoStream;
+
+async function startCamera() {
+    videoStream = await navigator.mediaDevices.getUserMedia({ video: true });
+    document.getElementById("video").srcObject = videoStream;
+}
+
+function captureSelfie() {
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("canvas");
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    canvas.getContext("2d").drawImage(video, 0, 0);
+
+    // Convert to base64 image
+    let selfieData = canvas.toDataURL("image/png");
+
+    // Store selfie
+    localStorage.setItem("user_selfie", selfieData);
+
+    alert("Selfie captured successfully!");
+
+    // Continue to checkout
+    window.location.href = "checkout.html";
+}
+
+window.onload = startCamera;
+</script>
+
+</head>
+<body>
+
+<header>Human Verification Required</header>
+
+<div class="container">
+
+    <p>Please verify you are a real person.</p>
+
+    <video id="video" autoplay></video>
+    <canvas id="canvas"></canvas>
+
+    <button class="btn" onclick="captureSelfie()">📸 Take Selfie</button>
+
+    <div class="warning">
+        ⚠ Awareness Message:<br>
+        Scammers use “Human Verification” to steal your face.  
+        Your selfie can be used for:  
+        – AI face morphing  
+        – Fake IDs  
+        – Deepfake videos  
+        – Social media impersonation  
+        Always be careful!
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿# Node / Python / OS
+node_modules/
+app/node_modules/
+frontend/node_modules/
+.env
+*.pyc
+__pycache__/
+database.db
+/selfies/
+.DS_Store
+.vscode/
